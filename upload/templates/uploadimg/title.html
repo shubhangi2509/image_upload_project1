@@ -1,0 +1,25 @@
+                    {% extends 'layout.html' %}
+
+                {% block title %}
+                <title>TITLE</title>
+                    {% endblock %}
+
+
+                    {% block content %}
+
+                <p><h1>Django Uploading Images</h1></p>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="btn btn-outline-success col-3">Upload</button>
+
+
+                </form>
+
+
+                {% if img_obj %}
+             <h3>Succesfully uploaded : {{img_obj.title}}</h3>
+                <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:100px">
+                {% endif %}
+
+                    {% endblock %}

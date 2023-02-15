@@ -1,0 +1,28 @@
+            {% extends 'layout.html' %}
+
+
+    {% block title %}
+    <title>SHOW IMAGE</title>
+         {% endblock %}
+
+
+            {% block content  %}
+
+
+
+            {% for image in image %}
+
+<div>
+    {{image.title}}
+</div>
+<div>
+        <image src="{{image.image.url}}"height="300px" width="400px"></image>
+</div>
+
+      <a href="{% url 'update_url' image.id %}"><button class="btn btn-outline-warning btn-sm mr-3">UPDATE IMAGE</button></a>
+      <a href="{% url 'delete_url' image.id %}"><button class="btn btn-outline-danger btn-sm">DELETE IMAGE</button></a>
+
+
+{% endfor %}
+
+{% endblock %}
